@@ -13,14 +13,4 @@ class Solution:
                     ans+=answers[i]+1
                     dic[answers[i]]+=answers[i]
         return ans
-        for i in answers:
-            dic[i]+=1
-        for i in dic:
-            if i>=1:
-                ans+=i+1
-            else:
-                ans+=i
-        print(dic)
-        if dic[0]>=1:
-            ans+=dic[0]
-        return ans
+        
