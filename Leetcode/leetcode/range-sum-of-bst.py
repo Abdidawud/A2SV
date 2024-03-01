@@ -7,15 +7,13 @@
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         ans=0
-        li=[]
-        def inorder(node):
+        def inorder(node,low,high):
+            nonlocal ans
             if not node:
                 return []
-            inorder(node.left)
-            li.append(node.val)
-            inorder(node.right)
-        inorder(root)
-        for i in li:
-            if i>=low and i<=high:
-                ans+=i
+            inorder(node.left,low,high)
+            if node.val>=low and node.val<=high:
+                ans+=node.val
+            inorder(node.right,low,high)
+        inorder(root,low,high)
         return ans
